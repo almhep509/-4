@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OutLaw</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Tahoma, Arial, sans-serif;
+    background: linear-gradient(180deg, #140028, #050010);
+    color: white;
+    scroll-behavior: smooth;
+}
+
+/* الهيدر */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(10,0,20,0.9);
+    border-radius: 0 0 25px 25px;
+}
+
+.menu-btn {
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* القائمة الجانبية */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100%;
+    background: #0a0015;
+    transition: 0.3s;
+    padding: 20px;
+    z-index: 100;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar a {
+    display: block;
+    padding: 15px;
+    margin: 10px 0;
+    background: #6a00ff;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+/* المحتوى */
+.container {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.title {
+    font-size: 35px;
+    margin-top: 20px;
+}
+
+.desc {
+    margin-top: 15px;
+    color: #ccc;
+}
+
+/* زر الديسكورد */
+.btn {
+    display: block;
+    margin: 20px auto;
+    padding: 15px;
+    width: 80%;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    background: linear-gradient(90deg, #7b2cff, #4b00cc);
+    color: white;
+    text-align: center;
+}
+
+/* القوانين والمؤسسين */
+.rules-container, .founders-container {
+    display: none;
+    text-align: right;
+    margin-top: 20px;
+}
+
+.card {
+    background: linear-gradient(90deg, #6a00ff, #3d0099);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 20px;
+    text-align: right;
+}
+
+.rule-text, .founder-text {
+    margin-top: 10px;
+    color: #ddd;
+    font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+<!-- الهيدر -->
+<div class="header">
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    <div class="logo">OutLaw</div>
+</div>
+
+<!-- القائمة الجانبية -->
+<div class="sidebar" id="menu">
+    <a href="#" onclick="scrollToTop()">الرئيسية</a>
+    <a href="#" onclick="toggleRules()">القوانين</a>
+    <a href="#">السيرفرات</a>
+    <a href="#" onclick="toggleFounders()">المؤسسين</a>
+</div>
+
+<!-- المحتوى -->
+<div class="container" id="top">
+    <h1 class="title">OutLaw</h1>
+    <p class="desc">
+        سيرفر أوتلاو هو سيرفر قراند الحياة الواقعية مخصص للاعبين السوني!<br>
+        يقدم تجربة خيالية من الرول بلاي العالي والمميز!
+    </p>
+
+    <!-- زر الديسكورد -->
+    <a href="https://discord.gg/bhF9e543t" target="_blank" class="btn">سيرفر الديسكورد</a>
+
+    <!-- القوانين -->
+    <div class="rules-container" id="rules">
+        <div class="card">
+            الباور جيمنج - PowerGaming
+            <p class="rule-text">
+            استخدام الوسائل غير موجودة في اللعبة للحصول على ميزة أو عدم التوافق مع العالم بطريقة معقولة وبشكل واقعي ومنها التالي وهناك الكثير من المواقف والامثلة التي تندرج تحت Powergaming
+            </p>
+        </div>
+
+        <div class="card">
+            الخوف على الحياة - NVL
+            <p class="rule-text">
+            عدم الخوف بشكل واقعي على حياتك عندما تتعرض للتهديد بالأسلحة أو بأذى شديد من وسائل أخرى يعتبر الخوف على الحياة شي اساسي ومهم جدا مثال : اذا كان هناك اداة تعرض حياتك للخطر
+            </p>
+        </div>
+
+        <div class="card">
+            الميتا جيمنج - Metagaming
+            <p class="rule-text">
+            اي معلومة تحصل عليها من خارج المدينة مثال معلومة حصلت عليها من بث او دسكورد او مقطع باليوتيوب كلها تعتبر مخالفة
+            </p>
+        </div>
+
+        <div class="card">
+            القتل العشوائي - RDM
+            <p class="rule-text">
+            قتل الأشخاص دون سبب, تهديد, بصورة عشوائية او بدون عداوة يعتبر القتل العشوائي ممنوع ومخالف للنظام العام للسيرفر.
+            </p>
+        </div>
+
+        <div class="card">
+            قانون تقدير الحياة - NVL
+            <p class="rule-text">
+            الحفاظ على حياتك وحياة الآخرين، وعدم التهور، وأن لا تستهين بقتل الأشخاص، وأن لا تقاوم المجرم أو الشرطة او أي شخص يحمل سلاح مهما كان خصوصاً إذا كنت أعزل.
+            </p>
+        </div>
+
+        <div class="card">
+            القوانين العامة
+            <p class="rule-text">
+            - تمنع الاتفاقيات خارج الرول بلاي<br>
+            - يمنع اهانة الشخص المسقط<br>
+            - يجب عليك بناء كركتر خاص فيك<br>
+            - يمنع استخدام أي ملف يضر اللعب<br>
+            - في حال تحللت يجب نسيان المتسبب بموتك<br>
+            - ممنوع تذبح أحد وهو توه نازل برشوت<br>
+            - إذا أحد انعشك تجيك موتتين<br>
+            - ممنوع تفجير السيارات بالسيفور داخل السيارة<br>
+            - في حال معك رهينه ممنوع تلغم<br>
+            - إذا استخدمت الهليكوبتر المطار لازم تتلفها بعد الاستخدام
+            </p>
+        </div>
+    </div>
+
+    <!-- المؤسسين -->
+    <div class="founders-container" id="founders">
+        <div class="card">
+            <p class="founder-text">عبدالله القرني</p>
+            <p class="founder-text">يوسف الجهني</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("active");
+}
+
+// كل رابط داخل القائمة يغلقها عند الضغط
+document.querySelectorAll('.sidebar a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.getElementById("menu").classList.remove('active');
+    });
+});
+
+// فتح/غلق القوانين
+function toggleRules() {
+    let rules = document.getElementById("rules");
+    rules.style.display = rules.style.display === "block" ? "none" : "block";
+}
+
+// فتح/غلق المؤسسين
+function toggleFounders() {
+    let founders = document.getElementById("founders");
+    founders.style.display = founders.style.display === "block" ? "none" : "block";
+}
+
+// زر الرئيسية يرجعك للبداية
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
